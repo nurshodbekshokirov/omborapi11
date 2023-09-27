@@ -21,6 +21,10 @@ from asosiy.views import *
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 
 
@@ -49,5 +53,11 @@ router.register("buyurtmalar",BuyurtmaViewset)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include(router.urls)),
+    path("register/", RegisterAPIVIEW.as_view()),
+    path('login/', LoginApiview.as_view()),
+    path('logout/', LogoutApiview.as_view()),
+    path('token_ber/', TokenObtainPairView.as_view()),
+    path('token_yangila/', TokenRefreshView.as_view()),
+
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0)),
 ]

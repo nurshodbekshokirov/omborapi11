@@ -16,13 +16,20 @@ class Sotuvchi(models.Model):
 class Mahsulot(models.Model):
     nom = models.CharField(max_length=40)
     kelgan_sana = models.DateField(auto_now_add=True)
+    hajmi = models.CharField(max_length=50, choices=(("0,5 litr ", "0.5 litr"),
+                                                     ("1 litr","1 litr",), ("1,5 litr", "1,5 litr"),("2 litr", "2 litr")),blank=True)
     miqdor = models.PositiveSmallIntegerField()
     olchov = models.CharField(max_length=20)
     narx = models.PositiveIntegerField()
     sotuvchi = models.ForeignKey(Sotuvchi, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nom
+        return f"{self.nom}, {self.hajmi}"
+
+    # def save(self, *args, **kwargs):
+    #     umumiy = str(self.nom) + str(self.hajmi)
+    #     mahsulotlar = Mahsulot.objects.all()
+    #     if umumiy in mahsulotlar:
 
 class Client(models.Model):
     ism = models.CharField(max_length=40)
