@@ -7,7 +7,7 @@ class Sotuvchi(models.Model):
     fam = models.CharField(max_length=60)
     manzil = models.CharField(max_length=60)
     tel_nomer = models.CharField(max_length=20)
-    rasm = models.FileField(null=True, blank=True)
+    sotuvchi_rasm = models.FileField(null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
@@ -22,7 +22,7 @@ class Mahsulot(models.Model):
     miqdor = models.PositiveSmallIntegerField()
     olchov = models.CharField(max_length=20)
     narx = models.PositiveIntegerField()
-    rasm = models.FileField(null=True, blank=True)
+    mahsulot_rasm = models.FileField(null=True, blank=True)
     sotuvchi = models.ForeignKey(Sotuvchi, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -38,7 +38,7 @@ class Client(models.Model):
     fam = models.CharField(max_length=40)
     manzil = models.CharField(max_length=70, blank=True)
     tel = models.CharField(max_length=70)
-    rasm = models.FileField(null=True, blank=True)
+    client_rasm = models.FileField(null=True, blank=True)
     umumiy_summa = models.PositiveIntegerField(default=0, verbose_name="qarz")
 
 
