@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login,logout
 
 
 class MahsulotViewset(ModelViewSet):
-    authentication_classes = [JWTAuthentication]
+    # authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = Mahsulot.objects.all()
     serializer_class = MahsulotSerializers
@@ -62,8 +62,8 @@ class MahsulotViewset(ModelViewSet):
 
 
 class ClientViewset(ModelViewSet):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAuthenticated]
     queryset = Client.objects.all()
     serializer_class = ClientSerializers
 
@@ -82,8 +82,8 @@ class ClientViewset(ModelViewSet):
         return Response(serializer.data)
 
 class SotuvchiViewset(ModelViewSet):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAuthenticated]
     queryset = Sotuvchi.objects.all()
     serializer_class = SotuvchiSerializers
 
